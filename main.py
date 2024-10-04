@@ -1,4 +1,5 @@
 import requests
+
 from bs4 import BeautifulSoup
 
 import pandas as pd
@@ -7,17 +8,17 @@ import lxml
 
 url="https://country-leaders.onrender.com/"
 
-req= requests.get(url)
+Page= requests.get(url)
 status_url ="/status"
-req = requests.get(f"{url}/{status_url}")
+Page= requests.get(f"{url}/{status_url}")
 
-soup= BeautifulSoup(req.text,"html.parser")
+soup= BeautifulSoup(Page.text,"html.parser")
 
 
-if req.status_code == 200:
-   print(req.text)
+if Page.status_code == 200:
+   print(Page.text)
 else :
-   print(req.status_code)
+   print(Page.status_code)
 cookie_url = "https://country-leaders.onrender.com/cookie"
 response = requests.get (cookie_url)
 cookies=response.cookies
@@ -30,10 +31,6 @@ leaders_url="https://country-leaders.onrender.com/leaders"
 leaders = requests.get(leaders_url,cookies=cookies, params={"country":"be"})
 leaders_list=leaders.json()
 print(leaders_list)
-import requests
-import lxml
-from bs4 import BeautifulSoup
-import pandas as pd
 
 countries_url = "https://country-leaders.onrender.com/countries"
 leaders_url="https://country-leaders.onrender.com/leaders"
@@ -77,6 +74,69 @@ non_empty_paragraphs = [p.get_text(strip=True) for p in paragraphs if p.get_text
 
 #Display the paragraphs stored in the variable
 print("Extracted Paragraphs:", non_empty_paragraphs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
